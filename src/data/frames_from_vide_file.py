@@ -16,7 +16,7 @@ def frames_from_video_file(video_path, n_frames, output_size = (224,224), frame_
       output_size: Pixel size of the output frame image.
 
     Return:
-      An NumPy array of frames in the shape of (n_frames, height, width, channels).
+      An NumPy array of frames in the shape of (n_frames, 224, 224, 3).
   """
   # Read each video frame by frame
   result = []
