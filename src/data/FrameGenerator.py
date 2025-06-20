@@ -37,8 +37,8 @@ def main():
         }
     n_frames = 10
     frame_generator = FrameGenerator(subset_path['train'], n_frames, training=True)
-    for frames, label in frame_generator():
-        print(f"Frames shape: {frames.shape}, Label: {label}")
+    for idx, (frames, label) in enumerate(frame_generator()):
+        print(f"{idx} Frames shape: {frames.shape}, Label: {label}")
 
 if __name__ == "__main__":
     main()
