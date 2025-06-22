@@ -1,8 +1,9 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.python.keras import layers, models
-from tensorflow.python.keras.layers import Layer, Conv3D
-from tensorflow.python.keras import Sequential
+from tensorflow.keras import layers, models
+from tensorflow.keras.layers import Layer, Dense,LayerNormalization
+from tensorflow.keras import Sequential
+
 
 class Conv2Plus1D(Layer):
     def __init__(self, filters, kernel_size,padding ):
