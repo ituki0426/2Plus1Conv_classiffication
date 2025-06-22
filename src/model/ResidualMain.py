@@ -5,7 +5,7 @@ from tensorflow.keras.layers import Layer, Dense,LayerNormalization,ReLU
 from tensorflow.keras import Sequential
 from Conv2Plus1D import *
 
-class ResideualMain(Layer):
+class ResidualMain(Layer):
     def __init__(self,filters,kernel_size):
         super().__init__()
         self.seq = Sequential([
@@ -27,7 +27,7 @@ class ResideualMain(Layer):
         return self.seq(x)
 def main():
     input_tensor = tf.random.normal((2, 10, 64, 64, 3))  # 例: 2本の動画クリップ
-    model = ResideualMain(filters=8,kernel_size=(3,3))
+    model = ResidualMain(filters=8,kernel_size=(3,3))
     output = model(input_tensor)
     assert output.shape  == (2, 10, 64, 64, 8), "出力形状が正しくありません"
     print("✅ テスト通過")
