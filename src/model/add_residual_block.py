@@ -4,8 +4,9 @@ import numpy as np
 from tensorflow.keras import layers, models
 from tensorflow.keras.layers import Layer, Dense,LayerNormalization,add
 from tensorflow.keras import Sequential,Input,Model
-from ResidualMain import *
-from Project import *
+from model.ResidualMain import ResidualMain
+from model.Project import Project
+
 def add_residual_block(input,filters,kernel_size):
     out = ResidualMain(filters,kernel_size)(input)
     res = input

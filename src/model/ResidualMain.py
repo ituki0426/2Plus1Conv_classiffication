@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.layers import Layer, Dense,LayerNormalization,ReLU
 from tensorflow.keras import Sequential
-from Conv2Plus1D import *
+from model.Conv2Plus1D import Conv2Plus1D
 
 class ResidualMain(Layer):
     def __init__(self,filters,kernel_size):

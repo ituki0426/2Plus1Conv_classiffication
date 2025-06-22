@@ -1,5 +1,5 @@
 import random
-from frames_from_vide_file import *
+from data.frames_from_vide_file import frames_from_video_file
 from pathlib import Path
 
 class FrameGenerator:

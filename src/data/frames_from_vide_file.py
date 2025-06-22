@@ -1,7 +1,6 @@
 import cv2
 import random
-from format_frames import * 
-from make_dataset import *
+from data.format_frames import format_frames
 import numpy as np
 import os
 import matplotlib.pyplot as plt
@@ -49,23 +48,3 @@ def frames_from_video_file(video_path, n_frames, output_size = (224,224), frame_
   result = np.array(result)[..., [2, 1, 0]]
   return result
 
-def main():
-    path = make_dataset()['train'][0]
-    frames = frames_from_video_file(path, 10)
-    print(f"type of frames: {type(frames)}")
-    print(f"Shape of frames: {frames.shape}")
-
-    # 保存先フォルダの作成（存在しなければ作成）
-    save_dir = "../../img"
-    os.makedirs(save_dir, exist_ok=True)
-
-    # フレームを1枚ずつ保存
-    for i in range(frames.shape[0]):
-        filename = os.path.join(save_dir, f"frame_{i+1:02}.png")
-        # frames[i] の値が 0〜1 の float の場合でも保存可能
-        plt.imsave(filename, frames[i])
-        print(f"Saved: {filename}")
-
-
-if __name__ == "__main__":
-  main()
