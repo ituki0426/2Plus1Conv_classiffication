@@ -7,9 +7,9 @@ from pathlib import Path
 
 def make_dataset():
     subset_path = {
-        'train': Path('/mnt/g/マイドライブ/kaggle/3d_cnn_video/train'),
-        'test':Path('/mnt/g/マイドライブ/kaggle/3d_cnn_video/test'),
-        'val': Path('/mnt/g/マイドライブ/kaggle/3d_cnn_video/val')
+        'train': Path(os.getenv('TRAIN_PATH')),
+        'test':Path(os.getenv('TEST_PATH')),
+        'val': Path(os.getenv('VAL_PATH'))
     }
     n_frames = 10
     batch_size = 8
@@ -36,6 +36,13 @@ def make_dataset():
 
 def main():
     train_ds, val_ds, test_ds = make_dataset()
+    print("train_ds:")
+    for batch_idx, (frames, labels) in enumerate(train_ds.take(1)):  # 1バッチだけ確認
+        print(f"Batch {batch_idx}:")
+        print(f"  Frames shape: {frames.shape}")
+        print(f"  Labels shape: {labels.shape}")
+        print(f"  Labels: {labels.numpy()}")
+    
 
 if __name__ == "__main__":
     main()
