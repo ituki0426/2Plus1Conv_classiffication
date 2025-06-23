@@ -9,6 +9,7 @@
 (2+1)D convolution
 
 ![](./img/(2+1)D%20conv.png)
+
 ## 使用したデータセット
 
 実際に、動画からフレームを切り出した画像がimg/frame_01.png~img/frame_10.pngです。
